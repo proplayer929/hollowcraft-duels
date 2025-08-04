@@ -1,0 +1,74 @@
+# Database configuration
+database:
+  file: duels.db
+
+# Action bar configuration
+actionbar:
+  update-interval: 10
+  full-heart: "&c❤"
+  half-heart: "&e❤"
+  message: "Opponent Health: "
+
+# GUI configuration
+gui:
+  kit-gui-size: 27
+  kit-gui-title: "Select Kit"
+  kit-item: DIAMOND_SWORD
+  kit-item-name: "&e%s"
+  no-arena-lore: "&cNo available arenas!"
+  report-gui-size: 27
+  report-gui-title: "Report Duel"
+  report-item: PAPER
+  report-item-name: "&e%s"
+  inventory-gui-title: "Duel Inventory: "
+  border-material: GRAY_STAINED_GLASS_PANE
+
+# Discord webhook configuration
+discord:
+  webhook-url: "https://your-discord-webhook-url"
+  webhook-message: "{\"content\": \"Report for duel %s by %s: %s\"}"
+
+# Report categories
+report-categories:
+  - Cheating/Hacking
+  - Chat Abuse
+  - Griefing
+
+# Permissions
+permissions:
+  admin: duels.admin
+
+# Messages
+messages:
+  duel-usage: "&cUsage: /duel <player|leave|chatall|viewinv|report>"
+  duels-usage: "&cUsage: /duels <createkit|editkit|createarena|setpos1|setpos2|setspawn1|setspawn2|setkitarena|viewduelinv|reload>"
+  console-error: "&cThis command can only be used by players!"
+  target-offline: "&cInvalid or offline player!"
+  no-self-duel: "&cYou cannot duel yourself!"
+  no-arena: "&cNo available arenas for this kit!"
+  kit-not-found: "&cKit %s not found!"
+  arena-not-found: "&cArena %s not found!"
+  duel-not-found: "&cDuel ID not found!"
+  error-apply-kit: "&cFailed to apply kit!"
+  error-fetch-kits: "&cFailed to load kits!"
+  error-view-inventory: "&cFailed to view duel inventory!"
+  error-duel-start: "&cFailed to start duel!"
+  error-no-prelocation: "&cError: No pre-duel location found!"
+  error-opponent-offline: "&cOpponent is offline!"
+  error-command: "&cAn error occurred while executing the command!"
+  no-interact-outside-arena: "&cYou cannot interact outside the arena!"
+  forfeit: "&cYou forfeited the duel!"
+  not-in-duel: "&cYou are not in a duel!"
+  chatall-enabled: "&aNow seeing all chat messages."
+  duel-summary: "&aDuel Summary: &eWinner: %s &7| Damage Dealt: %.2f &7| Damage Received: %.2f"
+  view-inventory: "&9 [View Inventory]"
+  report: "&c [Report]"
+  report-submitted: "&aReport submitted for duel %s"
+  kit-created: "&aKit %s created!"
+  kit-updated: "&aKit %s updated!"
+  arena-created: "&aArena %s created!"
+  position-set: "&a%s set for arena %s"
+  kit-arena-set: "&aKit %s added to arena %s"
+  config-reloaded: "&aConfig reloaded!"
+  no-permission: "&cYou don't have permission!"
+  chat-format: "&7[%s] %s"
