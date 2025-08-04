@@ -1,0 +1,16 @@
+name: HollowDuels
+version: 1.0
+main: dev.proplayer919.hollowduels.HollowDuels
+api-version: 1.21
+depend: [PlaceholderAPI]
+commands:
+  duel:
+    description: Manage duels
+    usage: /<command> <player|leave|chatall|viewinv|report>
+  duels:
+    description: Admin commands for duels
+    usage: /<command> <createkit|editkit|createarena|setpos1|setpos2|setspawn1|setspawn2|setkitarena|viewduelinv|reload>
+permissions:
+  duels.admin:
+    description: Allows access to admin commands like viewduelinv
+    default: op
