@@ -19,6 +19,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -356,6 +357,21 @@ public class DuelPlugin extends JavaPlugin implements Listener {
         if (duel != null) {
             Player winner = (duel.player1 == player) ? duel.player2 : duel.player1;
             if (winner != null && winner.isOnline()) {
+                endDuel(duel, winner, player);
+            } else {
+                getLogger().log(Level.WARNING, "Winner is offline or null for duel " + duel.duelId);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerMove(PlayerMoveEvent event) {
+        Player player = event.getPlayer();
+        Duel duel = activeDuels.get(player.getUniqueId());
+        if (duel != null && !isInArenaBounds(event.getTo(), duel.arena)) {
+            Player winner = (duel.player1 == player) ? duel.player2 : duel.player1;
+            if (winner != null && winner.isOnline()) {
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("messages.out-of-bounds", "&cYou left the arena and lost the duel!")));
                 endDuel(duel, winner, player);
             } else {
                 getLogger().log(Level.WARNING, "Winner is offline or null for duel " + duel.duelId);
